@@ -34,14 +34,32 @@ class EV extends car{
     chargeBattery(chargeTo)
     {
         this.charge = chargeTo;
-        console.log(`${this.make}'s battery was charged to ${this.charge}%`)
+        console.log(`${this.make}'s battery was charged to ${this.charge}%.`);
     }
 
     // New accelerate method for EV class
     accelerate()
     {
-        this.speed += 20;
-        this.charge -+ 1;
-        console.log(`${this.make} accelerated 20 km/h to ${this.speed} km/h, with a charge of ${this.charge}%`);
+        if (this.charge >= 1) 
+        {
+            this.speed += 20;
+            this.charge -= 1;
+            console.log(`${this.make} accelerated 20 km/h to ${this.speed} km/h, with a charge of ${this.charge}%.`);
+        } 
+        else 
+        {
+            console.log(`Battery at ${this.charge}%. Not enough charge to accelerate.`);
+        }
     }
 }
+
+// Test Car
+let Tesla = new EV(`Tesla`, 120, 23)
+console.log(`${Tesla.make} is going ${Tesla.speed} km/h with ${Tesla.charge}% battery.`);
+Tesla.accelerate();
+Tesla.brake();
+Tesla.chargeBattery(1)
+Tesla.accelerate();
+Tesla.accelerate();
+Tesla.brake();
+Tesla.chargeBattery(25)
