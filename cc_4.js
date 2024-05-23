@@ -26,7 +26,14 @@ class car{
 class EV extends car{
     constructor(make, speed, charge)
     {
-        super(make, speed)
-        this.charge = charge
+        super(make, speed);
+        this.charge = charge;
+    }
+
+    // Charge battery to set value
+    chargeBattery(chargeTo)
+    {
+        this.charge = chargeTo;
+        console.log(`${this.make}'s battery was charged to ${this.charge}%`)
     }
 }
