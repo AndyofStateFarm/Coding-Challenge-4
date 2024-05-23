@@ -36,4 +36,12 @@ class EV extends car{
         this.charge = chargeTo;
         console.log(`${this.make}'s battery was charged to ${this.charge}%`)
     }
+
+    // New accelerate method for EV class
+    accelerate()
+    {
+        this.speed += 20;
+        this.charge -+ 1;
+        console.log(`${this.make} accelerated 20 km/h to ${this.speed} km/h, with a charge of ${this.charge}%`);
+    }
 }
